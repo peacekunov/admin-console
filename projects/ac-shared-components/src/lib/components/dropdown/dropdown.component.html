@@ -1,0 +1,12 @@
+<div class="form-group">
+    <label *ngIf="title != null" [ngClass]="{'error-label': error}">{{ title }}</label>
+    <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle btn-sm" [ngClass]="{'btn-danger': error}" type="button" data-toggle="dropdown" [disabled]="isDisabled">
+            {{ items[selected] }}
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <li *ngFor="let item of items; let i = index;"><a (click)="select(i);">{{ item }}</a></li>
+        </ul>
+    </div>
+</div>
