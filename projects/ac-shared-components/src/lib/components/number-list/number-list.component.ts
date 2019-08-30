@@ -10,6 +10,7 @@ export class NumberListComponent {
     @Input() tips: string[] = [];
     @Input() minCount: number = 0;
     @Input() step: number = 1;
+    @Input() validateFunction: Function;
 
     add() {
         this.items.push(0);
@@ -19,6 +20,10 @@ export class NumberListComponent {
         if (index > this.minCount - 1) {
             this.items.splice(index, 1);
         }
+    }
+
+    validate(item: number): boolean {
+        return this.validateFunction(item);
     }
 
     customTrackBy(index: number, obj: number) {
